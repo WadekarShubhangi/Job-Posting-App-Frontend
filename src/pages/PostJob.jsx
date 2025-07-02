@@ -1,6 +1,7 @@
 import Header from "../components/Header";
 import { useState } from "react";
 const PostJob = () => {
+   const [successMessage, setSuccessMessage] = useState(false);
   const [formData, setFormData] = useState({
     jobTitle: "",
     companyName: "",
@@ -10,6 +11,7 @@ const PostJob = () => {
     jobDescription: "",
     qualifications: "",
   });
+  setTimeout(() => setSuccessMessage(false), 5000);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -48,6 +50,7 @@ const PostJob = () => {
         throw "Failed to add job.";
       }
       const data = await response.json();
+      setSuccessMessage(true)
     } catch (error) {
       throw error
     }
@@ -157,7 +160,7 @@ const PostJob = () => {
               id="qualifications"
               rows="3"
               name="qualifications"
-              value={formData.value}
+              value={formData.qualifications}
               required
               onChange={handleChange}
             ></textarea>
@@ -168,6 +171,7 @@ const PostJob = () => {
             </button>
           </div>
         </form>
+        {successMessage && <p className="mt-3">Job Added Successfully.</p>}
       </main>
     </>
   );

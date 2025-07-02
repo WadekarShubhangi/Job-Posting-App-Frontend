@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 function App() {
   const [searchValue, setSearchValue] = useState("");
+
   const { data, loading, error } = useFetch(
     "https://job-posting-app-topaz.vercel.app/jobs"
   );
@@ -20,7 +21,6 @@ function App() {
     await fetch(`https://job-posting-app-topaz.vercel.app/jobs/${id}`, {
       method: "DELETE",
     });
-    console.log("Deleted job with handleclick");
     window.location.reload();
   };
 
