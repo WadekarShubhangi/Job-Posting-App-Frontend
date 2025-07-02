@@ -29,16 +29,19 @@ function App() {
       <Header />
       <main className="container my-3">
         <form action="">
-          {/* <input type="text" placeholder="Search By Job Title" /> */}
-          <div className="input-group mb-3 w-50">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Search By Job Title..."
-              aria-label="Search"
-              value={searchValue}
-              onChange={(e) => setSearchValue(e.target.value)}
-            />
+          <div className="row">
+            <div className="col-12 col-md-5">
+              <div className="input-group mb-3">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Search By Job Title..."
+                  aria-label="Search"
+                  value={searchValue}
+                  onChange={(e) => setSearchValue(e.target.value)}
+                />
+              </div>
+            </div>
           </div>
         </form>
         <h1>All Jobs</h1>
@@ -46,10 +49,10 @@ function App() {
         {error && <p>Error....</p>}
 
         <div className="row">
-          {filteredJobs?.length > 0 && 
+          {filteredJobs?.length > 0 &&
             filteredJobs.map((item) => (
               <div
-                className="col-12 col-sm-4 col-md-3 gx-3 gy-2"
+                className="col-12 col-sm-6 col-md-4 col-lg-3 gx-3 gy-2"
                 key={item._id}
               >
                 <div className="card h-100">
@@ -83,8 +86,7 @@ function App() {
                   </div>
                 </div>
               </div>
-            ))
-          }
+            ))}
         </div>
       </main>
     </>

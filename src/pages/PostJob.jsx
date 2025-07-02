@@ -11,7 +11,7 @@ const PostJob = () => {
     jobDescription: "",
     qualifications: "",
   });
-  setTimeout(() => setSuccessMessage(false), 5000);
+ 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
